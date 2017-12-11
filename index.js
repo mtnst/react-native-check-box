@@ -94,7 +94,7 @@ export default class CheckBox extends Component {
         }
 
         return (
-            <Image source={source} style={{tintColor: this.props.checkBoxColor}}/>
+            <Image source={source} style={[{tintColor: this.props.checkBoxColor}, this.props.checkBoxStyle]}/>
         );
     }
 
@@ -106,9 +106,11 @@ export default class CheckBox extends Component {
                 underlayColor='transparent'
                 disabled={this.props.disabled}
             >
-                {this._renderLeft()}
-                {this._renderImage()}
-                {this._renderRight()}
+                <View style={this.props.container}>
+                    {this._renderLeft()}
+                    {this._renderImage()}
+                    {this._renderRight()}
+                </View>
             </TouchableHighlight>
         );
     }

@@ -42,6 +42,7 @@ export default class CheckBox extends Component {
         isIndeterminate: PropTypes.bool.isRequired,
         checkBoxColor: PropTypes.string,
         disabled: PropTypes.bool,
+        checkBoxStyle: PropTypes.object
     }
     static defaultProps = {
         isChecked: false,
@@ -101,12 +102,11 @@ export default class CheckBox extends Component {
     render() {
         return (
             <TouchableHighlight
-                style={this.props.style}
                 onPress={() => this.onClick()}
                 underlayColor='transparent'
                 disabled={this.props.disabled}
             >
-                <View style={this.props.container}>
+                <View style={this.props.style}>
                     {this._renderLeft()}
                     {this._renderImage()}
                     {this._renderRight()}
